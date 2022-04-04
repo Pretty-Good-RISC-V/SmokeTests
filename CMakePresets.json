@@ -1,0 +1,58 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 21,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "base",
+      "displayName": "Base Config",
+      "hidden": true,
+      "generator": "Unix Makefiles",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "environment": {
+        "CTEST_OUTPUT_ON_FAILURE": "True"
+      },
+      "cacheVariables": {
+        "CMAKE_TOOLCHAIN_FILE": {
+          "type": "STRING",
+          "value": "${sourceDir}/cmake/riscv.cmake"
+        },
+        "BUILD_PRESET" : {
+          "type": "STRING",
+          "value": "${presetName}"
+        }
+      }
+    },
+    {
+      "name": "rv32i",
+      "displayName": "RV32I",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_RISCV_ISA": {
+          "type": "STRING",
+          "value": "RV32I"
+        }
+      }
+    },
+    {
+      "name": "rv64i",
+      "displayName": "RV64I",
+      "inherits": "base",
+      "cacheVariables": {
+        "CMAKE_RISCV_ISA": {
+          "type": "STRING",
+          "value": "RV64I"
+        }
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "default",
+      "configurePreset": "default"
+    }
+  ]
+}
