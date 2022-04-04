@@ -16,10 +16,6 @@
         "CTEST_OUTPUT_ON_FAILURE": "True"
       },
       "cacheVariables": {
-        "CMAKE_TOOLCHAIN_FILE": {
-          "type": "STRING",
-          "value": "${sourceDir}/cmake/riscv.cmake"
-        },
         "BUILD_PRESET" : {
           "type": "STRING",
           "value": "${presetName}"

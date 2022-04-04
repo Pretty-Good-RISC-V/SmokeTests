@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 
 set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+set(CMAKE_TOOLCHAIN_FILE "${CMAKE_CURRENT_SOURCE_DIR}/cmake/riscv.cmake")
 
 # set the project name
 project(test ASM)
