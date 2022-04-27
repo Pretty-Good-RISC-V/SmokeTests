@@ -51,6 +51,13 @@ _start:
     csrr t2, tselect;
     beq t1, t2, fail;
 
+    // Load/Store
+    li TESTNUM, 4;
+    li t1, 99;
+    sw t1, data1, t2;
+    lw t2, data1;
+    bne t1, t2, fail;
+
     j pass;
 
 write_tohost:
